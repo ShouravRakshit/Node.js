@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="chicken" name="choice">🍗</button>
+    <button type="submit" value="beef" name="choice">🥩</button>
+    <button type="submit" value="fish" name="choice">🐟</button>
+  </form>
+  <div id="recipeContainer" class="hidden">
+    
+    <% if (locals.chicken) { %>
+      <h2> <%= locals.chicken['name'] %> </h2>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <li> <%= locals.chicken["ingredients"]["protein"]["name"] %> ,  <%= locals.chicken["ingredients"]["protein"]["preparation"] %> </li>
+        <li> <%= locals.chicken["ingredients"]["salsa"]["name"] %> </li>
+        <li> <%= locals.chicken["ingredients"]["toppings"][0]["quantity"] %> <%= locals.chicken["ingredients"]["toppings"][0]["name"] %> </li>
+      </ul>
+    <% } else if(locals.beef) { %>
+      <h2> <%= locals.beef['name'] %> </h2>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <li> <%= locals.beef["ingredients"]["protein"]["name"] %> ,  <%= locals.beef["ingredients"]["protein"]["preparation"] %> </li>
+        <li> <%= locals.beef["ingredients"]["salsa"]["name"] %> </li>
+        <li> <%= locals.beef["ingredients"]["toppings"][0]["quantity"] %> <%= locals.beef["ingredients"]["toppings"][0]["name"] %> </li>
+      </ul>
+    <% } else if(locals.fish){ %>
+       <h2> <%= locals.fish['name'] %> </h2>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <li> <%= locals.fish["ingredients"]["protein"]["name"] %> ,  <%= locals.fish["ingredients"]["protein"]["preparation"] %> </li>
+        <li> <%= locals.fish["ingredients"]["salsa"]["name"] %> </li>
+        <li> <%= locals.fish["ingredients"]["toppings"][0]["quantity"] %> <%= locals.fish["ingredients"]["toppings"][0]["name"] %> </li>
+      </ul>
+    <% } else{ %>
+        <h2>Pick your favourite taco ingredient 👆</h2>
+    <% } %> 
+    
+    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+
+
+
+
+  </div>
+</body>
+
+</html>
