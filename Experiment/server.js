@@ -10,5 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/users/", userRouter);
 
+app.post("/submit", (req, res) => {
+    res.render("regis.ejs")
+});
+
 
 export {app};
