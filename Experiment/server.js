@@ -10,8 +10,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/users/", userRouter);
 
-app.post("/submit", (req, res) => {
-    res.render("regis.ejs")
+const middleware = (req, res, next) =>{
+    req.ywach = {
+        name : "ichigo",
+        age : 20
+    };
+    console.log("I am MiddleWare Function!");
+    next();
+}
+
+app.post("/submit", middleware, (req, res) => {
+    console.log(req.ywach);
+    res.render("regis.ejs", {
+        content : req.ywach
+    })
 });
 
 
