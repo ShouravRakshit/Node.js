@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import userRouter from "./routes/user.route.js";
 import cors from 'cors';
 import config from "./config/config.js";
-import db from "./config/db.js";
 
 const port = config.index.port;
 const app = express();
