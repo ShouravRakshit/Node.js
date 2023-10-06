@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
+
 app.post("/check", (req, res) =>{
   const requestData = req.body;
   if (requestData["password"] == correctPassword) {
